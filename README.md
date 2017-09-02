@@ -1,6 +1,8 @@
 Front End Coding Project
 ========================
 
+![image of community projects](mockups/full_page.png)
+
 Instructions:
 
 - navigate to `./project` directory and run `npm install`
