@@ -1,0 +1,98 @@
+
+
+.community-projects {
+   display: flex;
+   height: 100%;
+   width:100%;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+}
+
+.community-header {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.ytimg.com/vi/p_wk3q8jWcs/maxresdefault.jpg');
+  flex-direction: column;
+  font-family: 'Dosis', sans-serif;
+}
+
+.overlay {
+  background-color: rgba(0,0,0,.2);
+  z-index: 1;
+}
+
+.header-background {
+  position: fixed;
+  height: 400px;
+  width: 100%;
+  filter: brightness(40%);
+}
+
+.header-text {
+  z-index: 1;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-size: 50px;
+  margin-top: 60px;
+  letter-spacing: 5px;
+}
+
+
+.header-logo {
+  z-index: 1;
+  position: relative;
+
+}
+
+.header-top {
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 30px;
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+}
+
+.header-contents {
+  z-index: 1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+
+}
+
+.new-project-button {
+  z-index: 1;
+  width: 120px;
+  border-color: #30D2A9;
+  border-radius: 5px;
+  background-color: transparent;
+  box-shadow: none;
+  position: relative;
+  height: 50px;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+  border-style: solid;
+  font-size: 15px;
+}
+
+.new-project-button:hover {
+  cursor: pointer;
+}
+
+.grid-container {
+  display:flex;
+  width: 100%;
+  justify-content: center;
+}

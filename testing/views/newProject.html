@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>New Project</title>
+	</head>
+	<body>
+		<h1>This is the New Project test file.</h1>
+		<form action="/newProject" method="post">
+			<label>Title</label><input type=text name="title"><br>
+			<label>Poster Image</label><input type=file name="posterImage"><br>
+			<label>Extra Image 1</label><input type=file name="extraImages[]"><br>
+			<label>Extra Image 2</label><input type=file name="extraImages[]"><br>
+			<label>Description</label><input type=text name="description"><br>
+			<input type="submit">
+		</form>
+		<script>
+			var formElement = document.querySelector("form");
+			var titleElement = document.getElementById("titleElement");
+
+			formElement.addEventListener("submit", function (e) {
+				e.preventDefault();
+
+				var formData = new FormData(formElement);
+
+				var instructions = [{"title":"Step 1", "time":60, "instruction":"This is what you do"}, {"title":"Step 2", "time":70, "instruction":"This is what you do for step 2"}];
+
+				formData.append("instructions", JSON.stringify(instructions));
+
+				var request = new XMLHttpRequest();
+				request.onload = loaded;
+				request.open('POST', '/newProject', true);
+				request.send(formData);
+			});
+
+			function loaded()
+			{
+				console.log("Returned code:", this.status);
+				if (this.status != 200) {
+					console.log(this.responseText);
+				}
+			}
+		</script>
+	</body>
+</html>
+
+<!--
+Instructions (required): A list of steps, where each step contains the following information:
+Title (required): A string naming the step
+Time (required): An integer representing the number of minutes expected to complete this step
+Instruction (required): A string describing the step
+Image (optional): An image describing the step visually -->

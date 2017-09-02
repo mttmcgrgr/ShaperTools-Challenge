@@ -1,0 +1,12 @@
+{
+  "name": "shaper-front-end-coding-project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "connect-multiparty": "^2.0.0",
+    "cors": "^2.8.4",
+    "express": "^4.15.2"
+  }
+}

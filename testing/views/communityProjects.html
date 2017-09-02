@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Community Projects</title>
+	</head>
+	<body>
+		<h1>This is the Community Projects test file.</h1>
+		<div id="featuredProjects">
+		</div>
+		<hr>
+		<div id="categories">
+		</div>
+		<hr>
+		<div id="projects">
+		</div>
+		<script>
+			var featuredProjectsContainer = document.getElementById("featuredProjects");
+			var categoriesContainer = document.getElementById("categories");
+			var projectsContainer = document.getElementById("projects");
+
+			var featuredProjectsRequest = new XMLHttpRequest();
+			featuredProjectsRequest.onload = function () {
+				var projects = JSON.parse(this.responseText);
+				for (var i = 0; i < projects.length; i++) {
+					var projectElement = document.createElement("div");
+					var projectTitle = document.createElement("p");
+					var projectImage = document.createElement("img");
+					var projectLikes = document.createElement("p");
+					var projectDescription = document.createElement("p");
+
+					projectTitle.innerText = projects[i].title;
+					projectImage.setAttribute("src", projects[i].posterImage);
+					projectLikes.innerText = projects[i].likes;
+					projectDescription.innerText = projects[i].description;
+					projectElement.appendChild(projectTitle);
+					projectElement.appendChild(projectImage);
+					projectElement.appendChild(projectLikes);
+					projectElement.appendChild(projectDescription);
+					featuredProjectsContainer.appendChild(projectElement);
+				}
+			};
+			featuredProjectsRequest.open('GET', '/featuredProjects', true);
+			featuredProjectsRequest.send();
+
+			var categoriesRequest = new XMLHttpRequest();
+			categoriesRequest.onload = function () {
+				var categories = JSON.parse(this.responseText);
+				for (var i = 0; i < categories.length; i++) {
+					var categoryElement = document.createElement("p");
+					categoryElement.innerText = categories[i];
+					categoriesContainer.appendChild(categoryElement);
+				}
+			};
+			categoriesRequest.open('GET', '/categories', true);
+			categoriesRequest.send();
+
+			var projectsRequest = new XMLHttpRequest();
+			projectsRequest.onload = function () {
+				var projects = JSON.parse(this.responseText);
+				for (var i = 0; i < projects.length; i++) {
+					var projectElement = document.createElement("div");
+					var projectTitle = document.createElement("p");
+					var projectImage = document.createElement("img");
+					var projectLikes = document.createElement("p");
+
+					projectTitle.innerText = projects[i].title;
+					projectImage.setAttribute("src", projects[i].posterImage);
+					projectLikes.innerText = projects[i].likes;
+					projectElement.appendChild(projectTitle);
+					projectElement.appendChild(projectImage);
+					projectElement.appendChild(projectLikes);
+					projectsContainer.appendChild(projectElement);
+				}
+			};
+			projectsRequest.open('GET', '/projects', true);
+			projectsRequest.send();
+		</script>
+	</body>
+</html>
