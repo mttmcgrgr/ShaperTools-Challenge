@@ -1,4 +1,4 @@
-Front End Coding Project
+Front End Code Challenge
 ========================
 
 ![image of community projects](mockups/full_page.png)
